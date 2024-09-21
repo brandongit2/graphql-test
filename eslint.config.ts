@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import * as stylistic from "@stylistic/eslint-plugin";
 import {type Linter} from "eslint";
 import eslintPluginImportX from "eslint-plugin-import-x";
+import * as reactRefresh from "eslint-plugin-react-refresh";
 import esEslint from "typescript-eslint";
 
 export {config as default};
@@ -155,9 +156,20 @@ const config = [
 			},
 		},
 		rules: {
+			"@typescript-eslint/array-type": ["warn", {default: "array-simple"}],
 			"@typescript-eslint/consistent-type-definitions": ["warn", "type"],
 			"@typescript-eslint/consistent-type-imports": ["warn", {fixStyle: "inline-type-imports"}],
 			"@typescript-eslint/no-unnecessary-condition": ["warn", {allowConstantLoopConditions: true}],
+		},
+	},
+
+	{
+		files: ["**/*.+(jsx|tsx)"],
+		plugins: {
+			"react-refresh": reactRefresh,
+		},
+		rules: {
+			"react-refresh/only-export-components": "warn",
 		},
 	},
 ];

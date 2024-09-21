@@ -13,6 +13,7 @@
 		"eslint-plugin-import-x": "4.2.1",
 		"eslint-plugin-react": "7.36.1",
 		"eslint-plugin-react-hooks": "4.6.2",
+		"eslint-plugin-react-refresh": "0.4.12",
 		"jiti": "1.21.6",
 		"prettier": "3.3.3",
 		"typescript": "catalog:",
