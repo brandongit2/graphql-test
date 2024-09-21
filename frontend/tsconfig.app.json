@@ -7,7 +7,7 @@
 		"plugins": [
 			{
 				"name": "gql.tada/ts-plugin",
-				"schema": "./node_modules/@cadstrom/tsclient/schema.graphql",
+				"schema": "http://localhost:8000/graphql",
 				"tadaOutputLocation": "./src/graphql-env.d.ts"
 			}
 		],

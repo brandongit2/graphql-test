@@ -1,14 +1,14 @@
-import * as http from "node:http";
+import {createYoga} from "graphql-yoga";
+import {createServer} from "node:http";
 
-const host = "localhost";
+import {schema} from "./schema.js";
+
 const port = 8000;
 
-const requestListener: http.RequestListener = (req, res) => {
-	res.writeHead(200);
-	res.end("Hello, world!");
-};
+const yoga = createYoga({schema});
 
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
-	console.log(`Server is running at http://${host}:${port}`);
+const server = createServer(yoga);
+
+server.listen(port, () => {
+	console.log(`Server is running at http://localhost:${port}/graphql`);
 });

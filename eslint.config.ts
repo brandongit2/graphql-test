@@ -3,6 +3,7 @@ import * as stylistic from "@stylistic/eslint-plugin";
 import {type Linter} from "eslint";
 import eslintPluginImportX from "eslint-plugin-import-x";
 import nodePlugin from "eslint-plugin-n";
+import perfectionist from "eslint-plugin-perfectionist";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks"; // Supports ESLint 9, but doesn't support flat config so I have to use it a bit funny
 import * as reactRefresh from "eslint-plugin-react-refresh";
@@ -59,9 +60,26 @@ const config = [
 
 	// ===== Our own configs =====
 	{
+		settings: {
+			perfectionist: {
+				type: "natural",
+				order: "asc",
+				ignoreCase: true,
+			},
+			react: {
+				version: "detect",
+			},
+		},
+	},
+
+	{
 		files: ["**/*.+(js|jsx|cjs|mjs|ts|tsx|cts|mts)"],
 		plugins: {
 			"@stylistic": stylistic.default,
+			perfectionist,
+		},
+		languageOptions: {
+			sourceType: "module",
 		},
 		rules: {
 			"@stylistic/array-bracket-newline": ["warn", "consistent"],
@@ -151,12 +169,18 @@ const config = [
 					pathGroupsExcludedImportTypes: ["type"],
 					"newlines-between": "always",
 					alphabetize: {order: "asc", caseInsensitive: true},
-					warnOnUnassignedImports: true,
 				},
 			],
 
 			"n/no-missing-import": ["off"],
 			"n/prefer-node-protocol": ["warn"],
+
+			"perfectionist/sort-array-includes": ["warn", {groupKind: "spreads-first"}],
+			"perfectionist/sort-intersection-types": ["warn"],
+			"perfectionist/sort-named-exports": ["warn", {groupKind: "values-first"}],
+			"perfectionist/sort-named-imports": ["warn", {groupKind: "values-first"}],
+			"perfectionist/sort-objects": ["warn", {destructureOnly: true}],
+			"perfectionist/sort-union-types": ["warn"],
 		},
 	},
 
@@ -171,6 +195,7 @@ const config = [
 			"@typescript-eslint/array-type": ["warn", {default: "array-simple"}],
 			"@typescript-eslint/consistent-type-definitions": ["warn", "type"],
 			"@typescript-eslint/consistent-type-imports": ["warn", {fixStyle: "inline-type-imports"}],
+			"@typescript-eslint/no-misused-promises": ["warn", {checksVoidReturn: {arguments: false}}],
 			"@typescript-eslint/no-unnecessary-condition": ["warn", {allowConstantLoopConditions: true}],
 			"@typescript-eslint/restrict-template-expressions": ["warn", {allowNumber: true}],
 		},

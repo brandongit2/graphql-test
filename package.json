@@ -14,6 +14,7 @@
 		"eslint-import-resolver-typescript": "3.6.3",
 		"eslint-plugin-import-x": "4.2.1",
 		"eslint-plugin-n": "17.10.3",
+		"eslint-plugin-perfectionist": "3.6.0",
 		"eslint-plugin-react": "7.36.1",
 		"eslint-plugin-react-hooks": "5.1.0-rc-e4953922-20240919",
 		"eslint-plugin-react-refresh": "0.4.12",
