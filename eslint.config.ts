@@ -68,7 +68,7 @@ const config = [
 			"@stylistic/array-element-newline": ["warn", "consistent"],
 			"@stylistic/array-bracket-spacing": ["warn", "never"],
 			"@stylistic/function-call-spacing": ["warn"],
-			"@stylistic/function-paren-newline": ["warn"],
+			"@stylistic/function-paren-newline": ["warn", "consistent"],
 			"@stylistic/generator-star-spacing": ["warn", {before: false, after: true}],
 			"@stylistic/indent-binary-ops": ["warn", "tab"],
 			"@stylistic/jsx-pascal-case": ["warn"],
@@ -155,6 +155,7 @@ const config = [
 				},
 			],
 
+			"n/no-missing-import": ["off"],
 			"n/prefer-node-protocol": ["warn"],
 		},
 	},
