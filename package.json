@@ -1,0 +1,21 @@
+{
+	"name": "graphql-test-monorepo",
+	"version": "1.0.0",
+	"private": true,
+	"type": "module",
+	"packageManager": "pnpm@9.11.0+sha512.0a203ffaed5a3f63242cd064c8fb5892366c103e328079318f78062f24ea8c9d50bc6a47aa3567cabefd824d170e78fa2745ed1f16b132e16436146b7688f19b",
+	"devDependencies": {
+		"@eslint/js": "9.11.0",
+		"@stylistic/eslint-plugin": "2.8.0",
+		"@types/eslint__js": "8.42.3",
+		"eslint": "9.11.0",
+		"eslint-import-resolver-typescript": "3.6.3",
+		"eslint-plugin-import-x": "4.2.1",
+		"eslint-plugin-react": "7.36.1",
+		"eslint-plugin-react-hooks": "4.6.2",
+		"jiti": "1.21.6",
+		"prettier": "3.3.3",
+		"typescript": "catalog:",
+		"typescript-eslint": "8.6.0"
+	}
+}
