@@ -1,7 +1,7 @@
 declare module "eslint-plugin-react-refresh" {
-	import {type Rule} from "eslint";
+	import {type Linter} from "eslint";
 
-	declare const rules: Record<string, Rule.RuleModule>;
+	declare const rules: Linter.RulesRecord;
 
 	export {rules};
 }

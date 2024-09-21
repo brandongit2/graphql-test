@@ -2,6 +2,9 @@ import js from "@eslint/js";
 import * as stylistic from "@stylistic/eslint-plugin";
 import {type Linter} from "eslint";
 import eslintPluginImportX from "eslint-plugin-import-x";
+import nodePlugin from "eslint-plugin-n";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks"; // Supports ESLint 9, but doesn't support flat config so I have to use it a bit funny
 import * as reactRefresh from "eslint-plugin-react-refresh";
 import esEslint from "typescript-eslint";
 
@@ -31,7 +34,6 @@ const config = [
 	})),
 
 	// ===== ESLint Stylistic recommended configs =====
-
 	stylistic.configs.customize({
 		flat: true,
 		arrowParens: true,
@@ -47,6 +49,13 @@ const config = [
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any -- This config uses the typescript-eslint types mentioned above.
 	eslintPluginImportX.flatConfigs.recommended as any as Linter.Config,
 	eslintPluginImportX.flatConfigs.typescript,
+
+	// ===== eslint-plugin-n recommended configs =====
+	nodePlugin.configs["flat/recommended-script"],
+
+	// ===== eslint-plugin-react recommended configs =====
+	react.configs.flat.recommended,
+	react.configs.flat["jsx-runtime"],
 
 	// ===== Our own configs =====
 	{
@@ -145,6 +154,8 @@ const config = [
 					warnOnUnassignedImports: true,
 				},
 			],
+
+			"n/prefer-node-protocol": ["warn"],
 		},
 	},
 
@@ -160,15 +171,18 @@ const config = [
 			"@typescript-eslint/consistent-type-definitions": ["warn", "type"],
 			"@typescript-eslint/consistent-type-imports": ["warn", {fixStyle: "inline-type-imports"}],
 			"@typescript-eslint/no-unnecessary-condition": ["warn", {allowConstantLoopConditions: true}],
+			"@typescript-eslint/restrict-template-expressions": ["warn", {allowNumber: true}],
 		},
 	},
 
 	{
 		files: ["**/*.+(jsx|tsx)"],
 		plugins: {
+			"react-hooks": reactHooks,
 			"react-refresh": reactRefresh,
 		},
 		rules: {
+			...reactHooks.configs.recommended.rules,
 			"react-refresh/only-export-components": "warn",
 		},
 	},
