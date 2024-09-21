@@ -1,14 +1,53 @@
+import {createId} from "@paralleldrive/cuid2";
 import SchemaBuilder from "@pothos/core";
+
+import {getDataAsType} from "./persist.js";
+
+type Component = {
+	id: string,
+	name: string,
+};
+type Data = {
+	components: Map<string, Component>,
+};
+const data = getDataAsType<Data>();
 
 const builder = new SchemaBuilder({});
 
+const ComponentRef = builder.objectRef<Component>("Component").implement({fields: (t) => ({
+	id: t.exposeID("id"),
+	name: t.exposeString("name"),
+})});
+
 builder.queryType({
 	fields: (t) => ({
-		hello: t.string({
+		getComponent: t.field({
+			type: ComponentRef,
 			args: {
-				name: t.arg.string(),
+				id: t.arg.id({required: true}),
 			},
-			resolve: (parent, {name}) => `Hello, ${name ?? "World"}!`,
+			resolve: (root, args) => data.components.get(args.id),
+		}),
+		getComponents: t.field({
+			type: [ComponentRef],
+			resolve: () => Array.from(data.components.values()),
+		}),
+	}),
+});
+
+builder.mutationType({
+	fields: (t) => ({
+		createComponent: t.field({
+			type: ComponentRef,
+			args: {
+				name: t.arg.string({required: true}),
+			},
+			resolve: (parent, {name}) => {
+				const id = createId();
+				const component: Component = {id, name};
+				data.components.set(id, component);
+				return component;
+			},
 		}),
 	}),
 });

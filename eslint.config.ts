@@ -195,6 +195,8 @@ const config = [
 			"@typescript-eslint/array-type": ["warn", {default: "array-simple"}],
 			"@typescript-eslint/consistent-type-definitions": ["warn", "type"],
 			"@typescript-eslint/consistent-type-imports": ["warn", {fixStyle: "inline-type-imports"}],
+			"@typescript-eslint/no-confusing-void-expression": ["warn", {ignoreVoidOperator: true}],
+			"@typescript-eslint/no-meaningless-void-operator": ["off"],
 			"@typescript-eslint/no-misused-promises": ["warn", {checksVoidReturn: {arguments: false}}],
 			"@typescript-eslint/no-unnecessary-condition": ["warn", {allowConstantLoopConditions: true}],
 			"@typescript-eslint/restrict-template-expressions": ["warn", {allowNumber: true}],

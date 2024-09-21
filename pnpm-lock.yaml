@@ -68,6 +68,9 @@ importers:
 
   backend:
     dependencies:
+      '@paralleldrive/cuid2':
+        specifier: 2.2.2
+        version: 2.2.2
       '@pothos/core':
         specifier: 4.2.0
         version: 4.2.0(graphql@16.9.0)
@@ -395,6 +398,10 @@ packages:
   '@napi-rs/wasm-runtime@0.2.4':
     resolution: {integrity: sha512-9zESzOO5aDByvhIAsOy9TbpZ0Ur2AJbUI7UT73kcUTS2mxAMHOBaa1st/jAymNoCtvrit99kkzT1FZuXVcgfIQ==}
 
+  '@noble/hashes@1.5.0':
+    resolution: {integrity: sha512-1j6kQFb7QRru7eKN3ZDvRcP13rugwdxZqCjbiAVZfIJwgj2A65UmT4TgARXGlXgnRkORLTDTrO19ZErt7+QXgA==}
+    engines: {node: ^14.21.3 || >=16}
+
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -465,6 +472,9 @@ packages:
     resolution: {integrity: sha512-rVKiZSTgao4SBWyqWvStxDhKmwbKEN/E8+H3CJzIP4FcsL7MQtWH2HT86bmoefkyRe1yO+m2/mG7j3TfADh/Fg==}
     cpu: [x64]
     os: [win32]
+
+  '@paralleldrive/cuid2@2.2.2':
+    resolution: {integrity: sha512-ZOBkgDwEdoYVlSeRbYYXs0S9MejQofiVYoTbKzy/6GQa39/q5tQU2IX46+shYnUkpEl3wc+J6wRlar7r2EK2xA==}
 
   '@pothos/core@4.2.0':
     resolution: {integrity: sha512-dEoQCaA/pCPg3MhjGCwBF1QRbtOPysXm4nivQQsq6OrOvC7pU+KJNVdBSwpi1ZtTLtd4wg+PCC8Js9GrCyh9sw==}
@@ -2220,6 +2230,8 @@ snapshots:
       '@tybys/wasm-util': 0.9.0
     optional: true
 
+  '@noble/hashes@1.5.0': {}
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -2268,6 +2280,10 @@ snapshots:
 
   '@oxc-resolver/binding-win32-x64-msvc@1.11.0':
     optional: true
+
+  '@paralleldrive/cuid2@2.2.2':
+    dependencies:
+      '@noble/hashes': 1.5.0
 
   '@pothos/core@4.2.0(graphql@16.9.0)':
     dependencies:

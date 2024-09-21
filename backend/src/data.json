@@ -1,0 +1,21 @@
+{
+  "components": {
+    "$$dataType": "map",
+    "value": [
+      [
+        "y1otsdc5fymwcy0ke40ge630",
+        {
+          "id": "y1otsdc5fymwcy0ke40ge630",
+          "name": "component name"
+        }
+      ],
+      [
+        "tcpf8lii1jgpwlwe45gz25qn",
+        {
+          "id": "tcpf8lii1jgpwlwe45gz25qn",
+          "name": "component name 2!!"
+        }
+      ]
+    ]
+  }
+}
