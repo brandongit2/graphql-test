@@ -1,20 +1,21 @@
+import {cacheExchange} from "@urql/exchange-graphcache";
 import {Suspense} from "react";
-import {cacheExchange, Client, fetchExchange, Provider as UrqlProvider} from "urql";
+import {Client, fetchExchange, Provider as UrqlProvider} from "urql";
 
-import {HelloGraphql} from "./HelloGraphql.js";
+import {ComponentList} from "./ComponentList.js";
 
 import "./app.css";
 
 const client = new Client({
 	url: "http://localhost:8000/graphql",
-	exchanges: [cacheExchange, fetchExchange],
+	exchanges: [cacheExchange({}), fetchExchange],
 });
 
 export function App() {
 	return (
 		<UrqlProvider value={client}>
 			<Suspense>
-				<HelloGraphql />
+				<ComponentList />
 			</Suspense>
 		</UrqlProvider>
 	);

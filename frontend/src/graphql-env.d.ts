@@ -3,10 +3,12 @@
 
 export type introspection_types = {
     'Boolean': unknown;
+    'Component': { kind: 'OBJECT'; name: 'Component'; fields: { 'id': { name: 'id'; type: { kind: 'SCALAR'; name: 'ID'; ofType: null; } }; 'name': { name: 'name'; type: { kind: 'SCALAR'; name: 'String'; ofType: null; } }; }; };
     'Float': unknown;
     'ID': unknown;
     'Int': unknown;
-    'Query': { kind: 'OBJECT'; name: 'Query'; fields: { 'hello': { name: 'hello'; type: { kind: 'SCALAR'; name: 'String'; ofType: null; } }; }; };
+    'Mutation': { kind: 'OBJECT'; name: 'Mutation'; fields: { 'createComponent': { name: 'createComponent'; type: { kind: 'OBJECT'; name: 'Component'; ofType: null; } }; }; };
+    'Query': { kind: 'OBJECT'; name: 'Query'; fields: { 'getComponent': { name: 'getComponent'; type: { kind: 'OBJECT'; name: 'Component'; ofType: null; } }; 'getComponents': { name: 'getComponents'; type: { kind: 'LIST'; name: never; ofType: { kind: 'NON_NULL'; name: never; ofType: { kind: 'OBJECT'; name: 'Component'; ofType: null; }; }; } }; }; };
     'String': unknown;
 };
 
@@ -21,7 +23,7 @@ export type introspection_types = {
 export type introspection = {
   name: never;
   query: 'Query';
-  mutation: never;
+  mutation: 'Mutation';
   subscription: never;
   types: introspection_types;
 };

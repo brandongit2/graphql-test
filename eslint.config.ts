@@ -197,7 +197,7 @@ const config = [
 			"@typescript-eslint/consistent-type-imports": ["warn", {fixStyle: "inline-type-imports"}],
 			"@typescript-eslint/no-confusing-void-expression": ["warn", {ignoreVoidOperator: true}],
 			"@typescript-eslint/no-meaningless-void-operator": ["off"],
-			"@typescript-eslint/no-misused-promises": ["warn", {checksVoidReturn: {arguments: false}}],
+			"@typescript-eslint/no-misused-promises": ["warn", {checksVoidReturn: false}],
 			"@typescript-eslint/no-unnecessary-condition": ["warn", {allowConstantLoopConditions: true}],
 			"@typescript-eslint/restrict-template-expressions": ["warn", {allowNumber: true}],
 		},
