@@ -9,7 +9,6 @@
 		"@stylistic/eslint-plugin": "2.8.0",
 		"@types/eslint__js": "8.42.3",
 		"@types/node": "22.6.0",
-		"@types/web": "0.0.165",
 		"eslint": "9.11.1",
 		"eslint-import-resolver-typescript": "3.6.3",
 		"eslint-plugin-import-x": "4.3.0",

@@ -85,6 +85,7 @@ const config = [
 			"@stylistic/array-bracket-newline": ["warn", "consistent"],
 			"@stylistic/array-element-newline": ["warn", "consistent"],
 			"@stylistic/array-bracket-spacing": ["warn", "never"],
+			"@stylistic/block-spacing": ["warn", "always"], // As an exception to @stylistic/object-curly-spacing
 			"@stylistic/function-call-spacing": ["warn"],
 			"@stylistic/function-paren-newline": ["warn", "consistent"],
 			"@stylistic/generator-star-spacing": ["warn", {before: false, after: true}],
@@ -150,6 +151,7 @@ const config = [
 				{blankLine: "any", prev: "function-overload", next: "function-overload"},
 			],
 			"@stylistic/quote-props": ["warn", "as-needed"],
+			"@stylistic/semi": ["warn", "always", {omitLastInOneLineBlock: true, omitLastInOneLineClassBody: true}],
 			"@stylistic/switch-colon-spacing": ["warn"],
 
 			"import-x/consistent-type-specifier-style": ["warn", "prefer-inline"],
@@ -195,9 +197,8 @@ const config = [
 			"@typescript-eslint/array-type": ["warn", {default: "array-simple"}],
 			"@typescript-eslint/consistent-type-definitions": ["warn", "type"],
 			"@typescript-eslint/consistent-type-imports": ["warn", {fixStyle: "inline-type-imports"}],
-			"@typescript-eslint/no-confusing-void-expression": ["warn", {ignoreVoidOperator: true}],
-			"@typescript-eslint/no-meaningless-void-operator": ["off"],
-			"@typescript-eslint/no-misused-promises": ["warn", {checksVoidReturn: false}],
+			"@typescript-eslint/no-confusing-void-expression": ["warn", {ignoreArrowShorthand: true}],
+			"@typescript-eslint/no-floating-promises": ["warn", {ignoreVoid: false}],
 			"@typescript-eslint/no-unnecessary-condition": ["warn", {allowConstantLoopConditions: true}],
 			"@typescript-eslint/restrict-template-expressions": ["warn", {allowNumber: true}],
 		},

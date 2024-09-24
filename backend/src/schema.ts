@@ -15,8 +15,8 @@ const data = getDataAsType<Data>();
 const builder = new SchemaBuilder({});
 
 const ComponentRef = builder.objectRef<Component>("Component").implement({fields: (t) => ({
-	id: t.exposeID("id"),
-	name: t.exposeString("name"),
+	id: t.exposeID("id", {nullable: false}),
+	name: t.exposeString("name", {nullable: false}),
 })});
 
 builder.queryType({
@@ -47,6 +47,15 @@ builder.mutationType({
 				const component: Component = {id, name};
 				data.components.set(id, component);
 				return component;
+			},
+		}),
+		removeComponent: t.id({
+			args: {
+				id: t.arg.id({required: true}),
+			},
+			resolve: (parent, {id}) => {
+				data.components.delete(id);
+				return id;
 			},
 		}),
 	}),

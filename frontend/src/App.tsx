@@ -1,21 +1,16 @@
-import {cacheExchange} from "@urql/exchange-graphcache";
 import {Suspense} from "react";
-import {Client, fetchExchange, Provider as UrqlProvider} from "urql";
+import {Provider as UrqlProvider} from "urql";
 
 import {ComponentList} from "./ComponentList.js";
+import {urqlClient} from "./urql-client.js";
 
 import "./app.css";
 
-const client = new Client({
-	url: "http://localhost:8000/graphql",
-	exchanges: [cacheExchange({}), fetchExchange],
-});
-
 export function App() {
 	return (
-		<UrqlProvider value={client}>
+		<UrqlProvider value={urqlClient}>
 			<Suspense>
-				<ComponentList />
+				<div className="grow grid place-content-center"><ComponentList /></div>
 			</Suspense>
 		</UrqlProvider>
 	);

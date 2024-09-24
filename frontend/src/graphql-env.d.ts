@@ -3,11 +3,11 @@
 
 export type introspection_types = {
     'Boolean': unknown;
-    'Component': { kind: 'OBJECT'; name: 'Component'; fields: { 'id': { name: 'id'; type: { kind: 'SCALAR'; name: 'ID'; ofType: null; } }; 'name': { name: 'name'; type: { kind: 'SCALAR'; name: 'String'; ofType: null; } }; }; };
+    'Component': { kind: 'OBJECT'; name: 'Component'; fields: { 'id': { name: 'id'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'SCALAR'; name: 'ID'; ofType: null; }; } }; 'name': { name: 'name'; type: { kind: 'NON_NULL'; name: never; ofType: { kind: 'SCALAR'; name: 'String'; ofType: null; }; } }; }; };
     'Float': unknown;
     'ID': unknown;
     'Int': unknown;
-    'Mutation': { kind: 'OBJECT'; name: 'Mutation'; fields: { 'createComponent': { name: 'createComponent'; type: { kind: 'OBJECT'; name: 'Component'; ofType: null; } }; }; };
+    'Mutation': { kind: 'OBJECT'; name: 'Mutation'; fields: { 'createComponent': { name: 'createComponent'; type: { kind: 'OBJECT'; name: 'Component'; ofType: null; } }; 'removeComponent': { name: 'removeComponent'; type: { kind: 'SCALAR'; name: 'ID'; ofType: null; } }; }; };
     'Query': { kind: 'OBJECT'; name: 'Query'; fields: { 'getComponent': { name: 'getComponent'; type: { kind: 'OBJECT'; name: 'Component'; ofType: null; } }; 'getComponents': { name: 'getComponents'; type: { kind: 'LIST'; name: never; ofType: { kind: 'NON_NULL'; name: never; ofType: { kind: 'OBJECT'; name: 'Component'; ofType: null; }; }; } }; }; };
     'String': unknown;
 };
