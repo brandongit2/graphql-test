@@ -52,7 +52,10 @@ const config = [
 	eslintPluginImportX.flatConfigs.typescript,
 
 	// ===== eslint-plugin-n recommended configs =====
-	nodePlugin.configs["flat/recommended-script"],
+	{
+		...nodePlugin.configs["flat/recommended-script"],
+		files: ["backend/**/*.+(js|jsx|cjs|mjs|ts|tsx|cts|mts)"],
+	},
 
 	// ===== eslint-plugin-react recommended configs =====
 	react.configs.flat.recommended,
@@ -174,9 +177,6 @@ const config = [
 				},
 			],
 
-			"n/no-missing-import": ["off"],
-			"n/prefer-node-protocol": ["warn"],
-
 			"perfectionist/sort-array-includes": ["warn", {groupKind: "spreads-first"}],
 			"perfectionist/sort-intersection-types": ["warn"],
 			"perfectionist/sort-named-exports": ["warn", {groupKind: "values-first"}],
@@ -184,6 +184,14 @@ const config = [
 			"perfectionist/sort-objects": ["warn", {destructureOnly: true}],
 			"perfectionist/sort-union-types": ["warn"],
 		},
+	},
+
+	{
+		files: ["backend/**/*.+(js|jsx|cjs|mjs|ts|tsx|cts|mts)"],
+		rules: {
+			"n/no-missing-import": ["off"],
+			"n/prefer-node-protocol": ["warn"],
+		}
 	},
 
 	{

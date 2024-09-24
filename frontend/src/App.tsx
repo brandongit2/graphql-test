@@ -1,17 +1,19 @@
 import {Suspense} from "react";
-import {Provider as UrqlProvider} from "urql";
+import {RelayEnvironmentProvider} from "react-relay";
 
 import {ComponentList} from "./ComponentList.js";
-import {urqlClient} from "./urql-client.js";
+import {createRelayEnvironment} from "./relay-environment.js";
 
 import "./app.css";
 
+const relayEnvironment = createRelayEnvironment();
+
 export function App() {
 	return (
-		<UrqlProvider value={urqlClient}>
+		<RelayEnvironmentProvider environment={relayEnvironment}>
 			<Suspense>
 				<div className="grow grid place-content-center"><ComponentList /></div>
 			</Suspense>
-		</UrqlProvider>
+		</RelayEnvironmentProvider>
 	);
 }

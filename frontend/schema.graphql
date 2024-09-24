@@ -1,0 +1,19 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Component {
+  id: ID!
+  name: String!
+}
+
+type Mutation {
+  createComponent(name: String!): Component
+  removeComponent(id: ID!): ID
+}
+
+type Query {
+  getComponent(id: ID!): Component
+  getComponents: [Component!]
+}
